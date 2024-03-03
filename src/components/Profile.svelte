@@ -25,7 +25,7 @@
 {:then profile}
     <div in:fade out:fade class="flex items-center gap-10">
         <img
-            class="w-[150px] h-[150px] aspect-[1:1] rounded-xl p-2"
+            class="w-[150px] h-[150px] aspect-square rounded-full p-2"
             src={profile.avatar_url}
             alt={profile.name}
         />
