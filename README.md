@@ -10,7 +10,7 @@ La pagina web [Aquí](https://angelito91.github.io/gh-profile)
 
 - Descargar el repositorio
     ```
-    git clone
+    git clone https://github.com/Angelito91/gh-profile.git
     ```
 - Instalar las dependencias
     ```
