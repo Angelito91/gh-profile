@@ -31,7 +31,7 @@
         {#each repos as repo}
             <a
                 href={repo.html_url}
-                class="flex flex-col justify-between gap-3 p-5 transition hover:scale-105 rounded-lg shadow bg-gradient-to-r from-slate-900 to-purple-800/20"
+                class="flex flex-col justify-between gap-3 p-5 transition hover:scale-105 rounded-lg shadow bg-gradient-to-r from-slate-900 to-purple-800/20 z-10"
             >
                 <p class="text-lg md:text-xl mb-2">{repo.name}</p>
                 <p class="text-sm md:text-md text-slate-500">{repo.description}</p>
