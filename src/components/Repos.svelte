@@ -25,7 +25,7 @@
 </script>
 
 {#await getRepos({ user: $user })}
-    <p class="text-center text-xl text-slate-600 my-2">Loading the repos ...</p>
+    <p class="text-center text-xl text-slate-500 my-2">Loading the repos ...</p>
 {:then repos}
     <div in:fade out:fade class="grid grid-cols-2 gap-10 mt-10">
         {#each repos as repo}
@@ -34,7 +34,7 @@
                 class="flex flex-col justify-between gap-3 p-5 transition hover:scale-105 rounded-lg shadow bg-gradient-to-r from-slate-900 to-purple-800/20"
             >
                 <p class="text-xl mb-2">{repo.name}</p>
-                <p class="text-sm text-slate-600">{repo.description}</p>
+                <p class="text-sm text-slate-500">{repo.description}</p>
                 <div class="flex items-center gap-10">
                     <p
                         class="flex justify-center items-center gap-1 text-purple-600"
@@ -52,7 +52,7 @@
                         <StarIcon />{repo.stargazers_count}
                     </p>
                     <p
-                        class="flex justify-center items-center gap-1 text-sm text-slate-600"
+                        class="flex justify-center items-center gap-1 text-sm text-slate-500"
                     >
                         {moment(repo.updated_at).fromNow()}
                     </p>
