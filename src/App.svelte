@@ -4,7 +4,7 @@
   import Search from "./components/Search.svelte";
 </script>
 
-<main class="min-h-screen md:w-4/5 md:mx-auto text-white p-10">
+<main class="min-h-screen md:w-4/5 md:mx-auto text-white p-3 md:py-7">
   <Search />
   <Profile />
   <Repos />

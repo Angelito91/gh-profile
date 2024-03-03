@@ -23,38 +23,40 @@
         Loading the profile ...
     </p>
 {:then profile}
-    <div in:fade out:fade class="flex items-center gap-10">
+    <div in:fade out:fade class="flex flex-col md:flex-row items-center gap-10">
         <img
-            class="w-[150px] h-[150px] aspect-square rounded-full p-2"
+            class="mx-auto md:mx-0 w-[150px] h-[150px] aspect-square rounded-full p-2"
             src={profile.avatar_url}
             alt={profile.name}
         />
-        <p class="rounded-lg text-center text-slate-500 bg-slate-800/40 p-3">
-            Followers <span
-                class="text-white font-bold border-l border-slate-600 ml-1 px-2"
-                >{profile.followers}</span
-            >
-        </p>
-        <p class="rounded-lg text-center text-slate-500 bg-slate-800/40 p-3">
-            Following <span
-                class="text-white font-bold border-l border-slate-600 ml-1 px-2"
-                >{profile.following}</span
-            >
-        </p>
-        <p class="rounded-lg text-center text-slate-600 bg-slate-800/40 p-3">
-            Repos <span
-                class="text-white font-bold border-l border-slate-600 ml-1 px-2"
-                >{profile.public_repos}</span
-            >
-        </p>
-        <p class="rounded-lg text-center text-slate-500 bg-slate-800/40 p-3">
-            Location <span
-                class="text-white text-sm font-bold border-l border-slate-600 ml-1 px-2"
-                >{profile.location}</span
-            >
-        </p>
+        <div class='flex flex-wrap items-center  justify-center gap-5 md:gap-10'>
+            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+                Followers <span
+                    class="text-white font-bold border-l border-slate-600 ml-1 px-2"
+                    >{profile.followers}</span
+                >
+            </p>
+            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+                Following <span
+                    class="text-white font-bold border-l border-slate-600 ml-1 px-2"
+                    >{profile.following}</span
+                >
+            </p>
+            <p class="rounded-lg text-sm md:text-md text-center text-slate-600 bg-slate-800/40 p-3">
+                Repos <span
+                    class="text-white font-bold border-l border-slate-600 ml-1 px-2"
+                    >{profile.public_repos}</span
+                >
+            </p>
+            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+                Location <span
+                    class="text-white text-sm font-bold border-l border-slate-600 ml-1 px-2"
+                    >{profile.location}</span
+                >
+            </p>
+        </div>
     </div>
-    <div class="my-3">
+    <div class="my-5">
         <h2 class="text-2xl mb-2">{profile.name}</h2>
         <h3 class="text-sm text-slate-500">{profile.bio}</h3>
     </div>

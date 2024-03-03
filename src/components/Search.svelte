@@ -46,7 +46,7 @@
 </script>
 
 <div
-    class="flex relative transition items-center gap-3 p-2 hover:border-slate-400 bg-slate-800/40 border border-slate-600 rounded-lg w-1/2 mx-auto mb-5"
+    class="flex relative transition items-center gap-3 p-2 hover:border-slate-400 bg-slate-800/40 border border-slate-600 rounded-lg md:w-1/2 mx-auto mb-5"
 >
     <SearchIcon />
     <input
