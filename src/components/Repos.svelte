@@ -37,7 +37,7 @@
                 <p class="text-sm text-slate-600">{repo.description}</p>
                 <div class="flex items-center gap-10">
                     <p
-                        class="flex justify-center items-center gap-1 text-purple-800"
+                        class="flex justify-center items-center gap-1 text-purple-600"
                     >
                         <CodeIcon />{repo.language}
                     </p>
