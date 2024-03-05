@@ -31,10 +31,13 @@
         {#each repos as repo}
             <a
                 href={repo.html_url}
+                target="_blank"
                 class="flex flex-col justify-between gap-3 p-5 transition hover:scale-105 rounded-lg shadow bg-gradient-to-r from-slate-900 to-purple-800/20 z-10"
             >
                 <p class="text-lg md:text-xl mb-2">{repo.name}</p>
-                <p class="text-sm md:text-md text-slate-500">{repo.description}</p>
+                <p class="text-sm md:text-md text-slate-500">
+                    {repo.description}
+                </p>
                 <div class="flex items-center gap-5 md:gap-10">
                     <p
                         class="flex justify-center items-center gap-1 text-sm md:text-md text-purple-600"
@@ -61,5 +64,5 @@
         {/each}
     </div>
 {:catch}
-    <p class="text-center text-lg md:text-xl text-red-300 my-2">error ...</p>
+    <p class="text-center text-lg md:text-xl text-red-300 my-2">error loading repos ...</p>
 {/await}

@@ -22,7 +22,6 @@
     const getSearch = debounce(
         async () => {
             if (search.trim().length > 0) {
-                console.log("dsa");
                 try {
                     const res = await fetch(
                         URL_SEARCH + search + PARAMS_SEARCH,
@@ -34,7 +33,7 @@
                 }
             }
         },
-        800,
+        500,
         true,
     );
 
@@ -63,7 +62,7 @@
         >
             {#each profiles as profile}
                 <button
-                    class="flex gap-1 w-full items-center p-2 hover:bg-slate-800"
+                    class="flex gap-5 w-full items-center p-2 hover:bg-slate-800"
                     on:click={() => handleClick(profile.login)}
                 >
                     <img
@@ -71,15 +70,8 @@
                         src={profile.avatar_url}
                         alt={profile.login}
                     />
-                    <div class="w-full">
-                        <p class="text-xl">{profile.login}</p>
-                        <a
-                            href={profile.html_url}
-                            target="_blank"
-                            class="transition text-sm text-slate-600 hover:text-white"
-                            >{profile.html_url}</a
-                        >
-                    </div>
+                    <p class="font-bold text-xl">{profile.login}</p>
+                    <p class="text-xs text-slate-500">{profile.html_url}</p>
                 </button>
             {/each}
         </div>

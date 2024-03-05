@@ -10,6 +10,9 @@
     // Types
     import type { Profile } from "../types";
 
+    // Icons
+    import WebIcon from "./icons/Web.svelte";
+
     // Get the data of api.github and return the profile
     const getProfile = async ({ user }: { user: String }) => {
         const res = await fetch(URL_USER + user);
@@ -29,26 +32,34 @@
             src={profile.avatar_url}
             alt={profile.name}
         />
-        <div class='flex flex-wrap items-center  justify-center gap-5 md:gap-10'>
-            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+        <div class="flex flex-wrap items-center justify-center gap-5 md:gap-10">
+            <p
+                class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3"
+            >
                 Followers <span
                     class="text-white font-bold border-l border-slate-600 ml-1 px-2"
                     >{profile.followers}</span
                 >
             </p>
-            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+            <p
+                class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3"
+            >
                 Following <span
                     class="text-white font-bold border-l border-slate-600 ml-1 px-2"
                     >{profile.following}</span
                 >
             </p>
-            <p class="rounded-lg text-sm md:text-md text-center text-slate-600 bg-slate-800/40 p-3">
+            <p
+                class="rounded-lg text-sm md:text-md text-center text-slate-600 bg-slate-800/40 p-3"
+            >
                 Repos <span
                     class="text-white font-bold border-l border-slate-600 ml-1 px-2"
                     >{profile.public_repos}</span
                 >
             </p>
-            <p class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3">
+            <p
+                class="rounded-lg text-sm md:text-md text-center text-slate-500 bg-slate-800/40 p-3"
+            >
                 Location <span
                     class="text-white text-sm font-bold border-l border-slate-600 ml-1 px-2"
                     >{profile.location}</span
@@ -57,9 +68,18 @@
         </div>
     </div>
     <div class="my-5">
-        <h2 class="text-2xl mb-2">{profile.name}</h2>
+        <h2 class="flex items-center gap-5 text-2xl mb-2">
+            {profile.name}
+            <a
+                class="transition hover:scale-110"
+                target="_blank"
+                href={profile.html_url}
+            >
+                <WebIcon />
+            </a>
+        </h2>
         <h3 class="text-sm text-slate-500">{profile.bio}</h3>
     </div>
 {:catch}
-    <p class="text-center text-xl text-red-300 my-2">error loading pro...</p>
+    <p class="text-center text-xl text-red-300 my-2">error loading profile...</p>
 {/await}
