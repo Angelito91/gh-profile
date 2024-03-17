@@ -25,37 +25,37 @@
 </script>
 
 {#await getRepos({ user: $user })}
-    <p class="text-center text-xl text-slate-500 my-2">Loading the repos ...</p>
+    <p class="text-slate-500 my-2 text-xl text-center">Loading the repos ...</p>
 {:then repos}
-    <div in:fade out:fade class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+    <div in:fade out:fade class="lg:grid-cols-2 grid grid-cols-1 gap-10 mt-10">
         {#each repos as repo}
             <a
                 href={repo.html_url}
                 target="_blank"
-                class="flex flex-col justify-between gap-3 p-5 transition hover:scale-105 rounded-lg shadow bg-gradient-to-r from-slate-900 to-purple-800/20 z-10"
+                class="hover:scale-105 bg-gradient-to-r from-slate-900 to-purple-800/20 z-10 flex flex-col justify-between gap-3 p-5 transition rounded-lg shadow"
             >
-                <p class="text-lg md:text-xl mb-2">{repo.name}</p>
-                <p class="text-sm md:text-md text-slate-500">
+                <p class="md:text-xl mb-2 text-lg">{repo.name}</p>
+                <p class="md:text-md text-slate-500 text-sm">
                     {repo.description}
                 </p>
-                <div class="flex items-center gap-5 md:gap-10">
+                <div class="md:gap-10 flex items-center gap-5">
                     <p
-                        class="flex justify-center items-center gap-1 text-sm md:text-md text-purple-600"
+                        class="md:text-md flex items-center justify-center gap-1 text-sm text-purple-600"
                     >
                         <CodeIcon />{repo.language}
                     </p>
                     <p
-                        class="flex justify-center items-center gap-1 text-sm md:text-md text-emerald-600"
+                        class="md:text-md text-emerald-600 flex items-center justify-center gap-1 text-sm"
                     >
                         <ForkIcon />{repo.forks}
                     </p>
                     <p
-                        class="flex justify-center items-center gap-1 text-sm md:text-md text-yellow-500"
+                        class="md:text-md flex items-center justify-center gap-1 text-sm text-yellow-500"
                     >
                         <StarIcon />{repo.stargazers_count}
                     </p>
                     <p
-                        class="flex justify-center items-center gap-1 text-xs md:text-sm text-slate-500"
+                        class="md:text-sm text-slate-500 flex items-center justify-center gap-1 text-xs"
                     >
                         {moment(repo.updated_at).fromNow()}
                     </p>
@@ -64,5 +64,5 @@
         {/each}
     </div>
 {:catch}
-    <p class="text-center text-lg md:text-xl text-red-300 my-2">error loading repos ...</p>
+    <p class="md:text-xl my-2 text-lg text-center text-red-300">error loading repos ...</p>
 {/await}
