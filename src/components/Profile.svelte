@@ -34,35 +34,35 @@
         />
         <div class="md:gap-10 flex flex-wrap items-center justify-center gap-5">
             <p
-                class="md:text-md text-slate-500 bg-slate-800/40 p-3 text-sm text-center rounded-lg"
+                class="md:text-md text-rose-400 hover:shadow hover:shadow-slate-600/40 border-slate-600/40 p-3 text-sm text-center transition border rounded-lg"
             >
                 Followers <span
-                    class="border-slate-600 px-2 ml-1 font-bold text-white border-l"
+                    class="border-slate-400 px-2 ml-1 font-bold text-white border-l"
                     >{profile.followers}</span
                 >
             </p>
             <p
-                class="md:text-md text-slate-500 bg-slate-800/40 p-3 text-sm text-center rounded-lg"
+                class="md:text-md hover:shadow hover:shadow-slate-600/40 border-slate-600/40 p-3 text-sm text-center text-purple-400 transition border rounded-lg"
             >
                 Following <span
-                    class="border-slate-600 px-2 ml-1 font-bold text-white border-l"
+                    class="border-slate-400 px-2 ml-1 font-bold text-white border-l"
                     >{profile.following}</span
                 >
             </p>
             <p
-                class="md:text-md text-slate-600 bg-slate-800/40 p-3 text-sm text-center rounded-lg"
+                class="md:text-md hover:shadow hover:shadow-slate-600/40 border-slate-600/40 p-3 text-sm text-center text-green-400 transition border rounded-lg"
             >
                 Repos <span
-                    class="border-slate-600 px-2 ml-1 font-bold text-white border-l"
+                    class="border-slate-400 px-2 ml-1 font-bold text-white border-l"
                     >{profile.public_repos}</span
                 >
             </p>
             <p
-                class="md:text-md text-slate-500 bg-slate-800/40 p-3 text-sm text-center rounded-lg"
+                class="md:text-md text-sky-400 hover:shadow hover:shadow-slate-600/40 border-slate-600/40 p-3 text-sm text-center transition border rounded-lg"
             >
                 Location <span
-                    class="border-slate-600 px-2 ml-1 text-sm font-bold text-white border-l"
-                    >{profile.location}</span
+                    class="border-slate-300 px-2 ml-1 text-sm font-bold text-white border-l"
+                    >{profile.location || 'none'}</span
                 >
             </p>
         </div>
@@ -71,14 +71,14 @@
         <h2 class="flex items-center gap-5 mb-2 text-2xl">
             {profile.name}
             <a
-                class="hover:scale-110 transition"
+                class="hover:opacity-100 transition opacity-50"
                 target="_blank"
                 href={profile.html_url}
             >
                 <WebIcon />
             </a>
         </h2>
-        <h3 class="text-slate-500 text-sm">{profile.bio}</h3>
+        <h3 class="text-slate-400 text-sm">{profile.bio || "no bio"}</h3>
     </div>
 {:catch}
     <p class="my-2 text-xl text-center text-red-300">

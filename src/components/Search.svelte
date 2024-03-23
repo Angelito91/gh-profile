@@ -45,24 +45,22 @@
 </script>
 
 <div
-    class="hover:border-slate-400 bg-slate-800/40 border-slate-600 md:w-1/2 relative flex items-center gap-3 p-2 mx-auto mb-5 transition border rounded-lg"
+    class="hover:border-slate-300/40 bg-midnight/40 border-slate-400/40 md:w-1/2 mb-7 relative flex items-center gap-3 p-2 mx-auto transition border rounded-lg"
 >
     <SearchIcon />
     <input
         class="w-full bg-transparent outline-none"
-        type="text"
+        type="search"
+        placeholder="name of profile .."
         on:keyup={() => getSearch()}
         bind:value={search}
     />
-    {#if profiles.length > 0}
-        <div
-            in:fade
-            out:fade
-            class="-bottom-56 bg-slate-900 absolute left-0 z-10 w-full p-2 rounded-lg shadow"
-        >
+    
+    {#if profiles.length > 0 && search.length > 0}
+        <div in:fade out:fade class="-bottom-[4.5rem] absolute flex items-center justify-center w-full gap-5">
             {#each profiles as profile}
                 <button
-                    class="hover:bg-slate-800 flex items-center w-full gap-5 p-2"
+                    class="hover:scale-110 rounded-xl flex items-center gap-3 p-2"
                     on:click={() => handleClick(profile.login)}
                 >
                     <img
@@ -70,8 +68,9 @@
                         src={profile.avatar_url}
                         alt={profile.login}
                     />
-                    <p class="text-xl font-bold">{profile.login}</p>
-                    <p class="text-slate-500 text-xs">{profile.html_url}</p>
+                    <p class="text-nowrap text-ellipsis text-xl">
+                        {profile.login}
+                    </p>
                 </button>
             {/each}
         </div>
