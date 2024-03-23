@@ -2,7 +2,11 @@
 export default {
   content: ['index.html','src/**/*.svelte'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        midnight: "#161616",
+      }
+    },
   },
   plugins: [],
 }
