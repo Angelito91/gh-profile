@@ -1,8 +1,7 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
-
     // Consts
-    import { URL_USER } from "../utils/const";
+    import { URL } from "../utils/const";
 
     // Stores
     import { user } from "../utils/store";
@@ -13,9 +12,12 @@
     // Icons
     import WebIcon from "./icons/Web.svelte";
 
+    // Utils
+    import { convertNumber } from "../utils/convertNumber";
+
     // Get the data of api.github and return the profile
     const getProfile = async ({ user }: { user: String }) => {
-        const res = await fetch(URL_USER + user);
+        const res = await fetch(URL + user);
         const data: Profile = await res.json();
         return data;
     };
@@ -26,7 +28,10 @@
         Loading the profile ...
     </p>
 {:then profile}
-    <div in:fade out:fade class="md:flex-row flex flex-col items-center gap-10">
+    <div
+        transition:fade
+        class="md:flex-row flex flex-col items-center gap-10"
+    >
         <img
             class="mx-auto md:mx-0 w-[150px] h-[150px] aspect-square rounded-full p-2"
             src={profile.avatar_url}
@@ -38,7 +43,7 @@
             >
                 Followers <span
                     class="border-slate-400 px-2 ml-1 font-bold text-white border-l"
-                    >{profile.followers}</span
+                    >{convertNumber(profile.followers)}</span
                 >
             </p>
             <p
@@ -46,7 +51,7 @@
             >
                 Following <span
                     class="border-slate-400 px-2 ml-1 font-bold text-white border-l"
-                    >{profile.following}</span
+                    >{convertNumber(profile.following)}</span
                 >
             </p>
             <p
@@ -62,7 +67,7 @@
             >
                 Location <span
                     class="border-slate-300 px-2 ml-1 text-sm font-bold text-white border-l"
-                    >{profile.location || 'none'}</span
+                    >{profile.location || "none"}</span
                 >
             </p>
         </div>
