@@ -31,7 +31,7 @@
 {#await getRepos({ user: $user })}
     <p class="text-slate-500 my-2 text-xl text-center">Loading the repos ...</p>
 {:then repos}
-    <div transition:fade class="lg:grid-cols-2 grid grid-cols-1 gap-10 mt-10">
+    <div transition:fade class="lg:grid-cols-2 grid grid-cols-1 gap-5 mt-10">
         {#each repos as repo}
             <div
                 class=" hover:shadow hover:shadow-slate-600/40 border-slate-600/40 z-10 flex flex-col justify-between gap-3 p-5 transition border rounded-lg"
