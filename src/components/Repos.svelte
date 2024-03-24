@@ -3,7 +3,7 @@
     import moment from "moment";
 
     // Consts
-    import { URL_USER, PARAMS_USER } from "../utils/const";
+    import { URL, PARAMS } from "../utils/const";
 
     // Stores
     import { user } from "../utils/store";
@@ -22,7 +22,7 @@
 
     // Get the data of api.github and return the repos
     const getRepos = async ({ user }: { user: String }) => {
-        const res = await fetch(URL_USER + user + PARAMS_USER);
+        const res = await fetch(URL + user + PARAMS);
         const data: Repo[] = await res.json();
         return data;
     };
@@ -31,7 +31,7 @@
 {#await getRepos({ user: $user })}
     <p class="text-slate-500 my-2 text-xl text-center">Loading the repos ...</p>
 {:then repos}
-    <div in:fade out:fade class="lg:grid-cols-2 grid grid-cols-1 gap-10 mt-10">
+    <div transition:fade class="lg:grid-cols-2 grid grid-cols-1 gap-10 mt-10">
         {#each repos as repo}
             <div
                 class=" hover:shadow hover:shadow-slate-600/40 border-slate-600/40 z-10 flex flex-col justify-between gap-3 p-5 transition border rounded-lg"
