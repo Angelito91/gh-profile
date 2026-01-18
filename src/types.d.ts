@@ -1,3 +1,12 @@
+export interface UserData {
+  profileData: Profile,
+  reposData: Repo[],
+  orgsData: Organization[],
+  eventsData: Event[],
+  followersData: Owner[],
+  readmeData: string | null
+}
+
 export interface Profile {
   login: string
   id: number
@@ -162,4 +171,40 @@ export interface Item {
   type: string
   site_admin: boolean
   score: number
+}
+
+export interface Organization {
+  login: string
+  id: number
+  node_id: string
+  url: string
+  repos_url: string
+  events_url: string
+  hooks_url: string
+  issues_url: string
+  members_url: string
+  public_members_url: string
+  avatar_url: string
+  description: string
+}
+
+export interface Event {
+  id: string
+  type: string
+  actor: {
+    id: number
+    login: string
+    display_login: string
+    gravatar_id: string
+    url: string
+    avatar_url: string
+  }
+  repo: {
+    id: number
+    name: string
+    url: string
+  }
+  payload: any
+  public: boolean
+  created_at: string
 }
