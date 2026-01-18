@@ -2,7 +2,7 @@ name: Deploy Svelte with Bun to Pages
 
 on:
   push:
-    branches: ["main"] # Ensure this matches your default branch
+    branches: ["master"] # Ensure this matches your default branch
   workflow_dispatch:
 
 permissions:
